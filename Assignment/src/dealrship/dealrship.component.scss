@@ -1,0 +1,19 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+  }
+  
+  .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Align items to both ends */
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .mat-cell,
+.mat-header-cell {
+  padding: 5px !important; /* Adjust the padding as needed */
+}
+  .search-and-add-container mat-form-field {
+    margin-right: 8px;
+  }

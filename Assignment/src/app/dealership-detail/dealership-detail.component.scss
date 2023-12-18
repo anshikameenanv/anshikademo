@@ -1,0 +1,49 @@
+.mat-table {
+    width: 100%; /* Make the table take up the full width */
+    margin-top: 16px; /* Add margin at the top for spacing */
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    padding: 12px; /* Add padding to header and cell for spacing */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .mat-header-row,
+  .mat-row {
+    display: flex; /* Use flex layout for row elements */
+    justify-content: space-between; /* Distribute space evenly between columns */
+    border-bottom: 1px solid #ccc; /* Add a bottom border for separation */
+  }
+  
+  .mat-header-row th,
+  .mat-row td {
+    flex: 1; /* Each column takes equal space */
+  }
+  
+  .mat-button {
+    margin-right: 8px; /* Add margin between action buttons */
+  }
+  /* dealership-detail.component.css */
+/* dealership-detail.component.css */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .search-box {
+    margin-right: 16px; /* Adjust the margin as needed */
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 16px; /* Adjust the gap as needed */
+  }
+  

@@ -1,0 +1,31 @@
+<!-- add-car-dialog.component.html -->
+<div class="dialog-title">
+    <h2>Add Car</h2>
+    <button mat-icon-button mat-dialog-close aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <p class="sub-heading">All fields are mandatory.</p>
+    <mat-form-field>
+      <mat-label>Brand</mat-label>
+      <input matInput placeholder="Enter brand" [(ngModel)]="brand" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Model</mat-label>
+      <input matInput placeholder="Enter model" [(ngModel)]="model" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Color</mat-label>
+      <input matInput placeholder="Enter color" [(ngModel)]="color" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Enter price" [(ngModel)]="price" required>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="onSaveClick()" [disabled]="!brand || !model || !color || !price">Save</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+  </div>
+  
