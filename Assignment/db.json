@@ -1,58 +1,7 @@
 {
   "dealers": [
     {
-      "id": 1001,
-      "name": "Ford",
-      "totalBudget": "$1525",
-      "remainingBudget": "$2700",
-      "owner": {
-        "firstName": "John",
-        "lastName": "Doe"
-      },
-      "location": {
-        "latitude": "46545.45",
-        "longitude": "4655.245"
-      },
-      "cars": [
-        {
-          "id": "10001",
-          "name": "Ford Endeavour",
-          "model": "2018",
-          "brand": "Ford",
-          "color": "Silver",
-          "price": "$5452"
-        },
-        {
-          "id": "10002",
-          "name": "Ford EcoSport",
-          "model": "2020",
-          "brand": "Ford",
-          "color": "red",
-          "price": "$542"
-        },
-        {
-          "id": "10003",
-          "name": "Ford Figo",
-          "model": "2018",
-          "brand": "Ford",
-          "color": "white",
-          "price": "$855"
-        }
-      ]
-    },
-    {
-      "name": "ford",
-      "location": "indore",
-      "totalBudget": "$9000",
-      "remainingBudget": "$9000",
-      "owner": {
-        "firstName": "shreyansh",
-        "lastName": "sharma"
-      },
-      "cars": [],
-      "id": 1002
-    },
-    {
+      "id": 1003,
       "name": "SUV",
       "location": "bhopal",
       "totalBudget": "$400",
@@ -60,9 +9,33 @@
       "owner": {
         "firstName": "shreya",
         "lastName": "verma"
-      },
-      "cars": [],
-      "id": 1003
+      }
+    }
+  ],
+  "cars": [
+    {
+      "id": "10001",
+      "name": "Ford Endeavour",
+      "model": "2018",
+      "brand": "Ford",
+      "color": "Silver",
+      "price": "$5452"
+    },
+    {
+      "id": "10002",
+      "name": "Ford EcoSport",
+      "model": "2020",
+      "brand": "Ford",
+      "color": "red",
+      "price": "$542"
+    },
+    {
+      "id": "10003",
+      "name": "Ford Figo",
+      "model": "2018",
+      "brand": "Ford",
+      "color": "white",
+      "price": "$855"
     }
   ]
 }
