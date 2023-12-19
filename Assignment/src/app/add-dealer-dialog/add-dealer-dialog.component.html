@@ -1,43 +1,52 @@
 
 <h2 mat-dialog-title>
+  Add Dealer
+  <span class="close-icon" (click)="onCancel()">✖</span>
+</h2>
+<mat-dialog-content class="form-container">
+  <p class="subheading">All fields are mandatory.</p>
+
  
-    Add Dealer
-    <span class="close-icon" (click)="onCancel()">✖</span>
-  </h2>
-  <mat-dialog-content>
-    <p class="subheading">All fields are mandatory.</p>
-
-  <!-- Dealer Name Field -->
-  <div class="form-field">
-    <label for="dealerName">Dealer Name:</label>
-    <input id="dealerName" type="text" placeholder="Enter Dealer Name" [(ngModel)]="dealerName">
+  <div class="form-row">
+    <div class="form-field">
+      <label style="margin-right: 50px" for="dealerName">Dealer Name:</label>
+      <input id="dealerName" type="text" placeholder="Enter Dealer Name" [(ngModel)]="dealerName">
+    </div>
   </div>
 
-  <!-- Location Field -->
-  <div class="form-field">
-    <label for="location">Location:</label>
-    <input id="location" type="text" placeholder="Enter Location" [(ngModel)]="location">
+ 
+  <div class="form-row">
+    <div class="form-field">
+      <label style="margin-right: 80px" for="location">Location:</label>
+      <input id="location" type="text" placeholder="Enter Location" [(ngModel)]="location">
+    </div>
   </div>
 
-  <!-- Total Budget Field -->
-  <div class="form-field">
-    <label for="totalBudget">Total Budget:</label>
-    <input id="totalBudget" type="text" placeholder="Enter Total Budget" [(ngModel)]="totalBudget">
+
+  <div class="form-row">
+    <div class="form-field">
+      <label style="margin-right: 55px" for="totalBudget">Total Budget:</label>
+      <input id="totalBudget" type="text" placeholder="Enter Total Budget" [(ngModel)]="totalBudget">
+    </div>
   </div>
 
-  <!-- Owner's First Name Field -->
-  <div class="form-field">
-    <label for="ownerFirstName">Owner's First Name:</label>
-    <input id="ownerFirstName" type="text" placeholder="Enter Owner's First Name" [(ngModel)]="ownerFirstName">
+
+  <div class="form-row">
+    <div class="form-field">
+      <label style="margin-right: 8px" for="ownerFirstName">Owner's First Name:</label>
+      <input id="ownerFirstName" type="text" placeholder="Enter Owner's First Name" [(ngModel)]="ownerFirstName">
+    </div>
   </div>
 
-  <!-- Owner's Last Name Field -->
-  <div class="form-field">
-    <label for="ownerLastName">Owner's Last Name:</label>
-    <input id="ownerLastName" type="text" placeholder="Enter Owner's Last Name" [(ngModel)]="ownerLastName">
+ 
+  <div class="form-row">
+    <div class="form-field">
+      <label  style="margin-right: 8px" for="ownerLastName">Owner's Last Name:</label>
+      <input id="ownerLastName" type="text" placeholder="Enter Owner's Last Name" [(ngModel)]="ownerLastName">
+    </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onSaveClick()">Save</button>
+  <button mat-button style="background: #dee2e6;" (click)="onCancel()">Cancel</button>
+  <button style="background-color:#0d6efd;color: white;" mat-button (click)="onSaveClick()">Save</button>
 </mat-dialog-actions>

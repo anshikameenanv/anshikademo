@@ -15,16 +15,20 @@ export class DealerService {
   constructor(private http: HttpClient) {
     
   }
-
+  deleteCar(carId: any){
+ 
+    return this.http.delete<any>(`http://localhost:3000/cars/${carId}`);
   
-  addCar(dealerId: any, car: any): Observable<any> {
-    console.log(dealerId);
-    const url = `http://localhost:3000/dealers/${dealerId}/cars`;
-    return this.http.post(url, car);
   }
+  addCar(dealerId: any, carDetails: any): Observable<any> {
+    const carWithDealerId = { ...carDetails, dealerId };
+    return this.http.post<any>(`http://localhost:3000/cars`, carWithDealerId);
+  }
+  
     getDealerById(id: number): Observable<any> {
       const url = `${this.apiUrl}/${id}`;
-      return this.http.get<any>(url);
+      return this.http.get<any[]>(`http://localhost:3000/cars?dealerId=${id}`);
+      
     }
   
 

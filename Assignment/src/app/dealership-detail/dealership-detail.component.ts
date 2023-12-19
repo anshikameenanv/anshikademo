@@ -1,4 +1,4 @@
-import { Component, Input, NgZone, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, NgZone, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DealerService } from '../dealer.service';
 import { Observable } from 'rxjs';
@@ -15,7 +15,10 @@ export class DealershipDetailComponent {
 
   filteredCars: any[] = []; // Add type based on your car model
   dealer: any; // Change the type based on your data structure
+  @Output() dialogClose = new EventEmitter<boolean>();
   
+  closeTable: boolean = false;
+
   
 
   constructor(
@@ -35,17 +38,7 @@ export class DealershipDetailComponent {
         const dealerId =this.dealerId;
         console.log('Dealer ID:', dealerId);
         
-        this.dealerService.getDealerById(dealerId).subscribe(
-          (dealer: any) => {
-           
-            this.dealer = dealer;
-            this.filteredCars = [...this.dealer.cars];
-            console.log(dealer);
-          },
-          (error) => {
-            console.error('Error fetching dealer details:', error);
-          }
-        );
+       this.loadCar(dealerId)
       });
       console.log('Fetching data for dealerId:', this.dealerId);
     }
@@ -53,9 +46,24 @@ export class DealershipDetailComponent {
       console.error('Invalid dealerId:', this.dealerId);
     }
   }
+  loadCar(id:any){
+    this.dealerService.getDealerById(id).subscribe(
+      (dealer: any) => {
+       
+        this.dealer = dealer;
+        this.filteredCars = [...this.dealer];
+        console.log(this.filteredCars);
+        console.log(dealer);
+      },
+      (error) => {
+        console.error('Error fetching dealer details:', error);
+      }
+    );
+
+  }
   goBack(): void {
-    // Implement navigation back logic (e.g., using Angular Router)
-   
+   this.closeTable =false;
+    this.dialogClose.emit(this.closeTable);
   }
 
  
@@ -69,8 +77,10 @@ export class DealershipDetailComponent {
     dialogRef.afterClosed().subscribe((result) => {
       // Handle the result from the dialog (new car data or cancellation)
       if (result) {
+        this.loadCar(this.dealerId);
         // Perform logic to add the new car (e.g., send to a service)
         console.log('New Car Data:', result);
+
       } else {
         console.log('Add Car dialog was canceled.');
       }
@@ -97,9 +107,19 @@ export class DealershipDetailComponent {
     // Implement edit functionality
     console.log('Edit car:', car);
   }
-
-  deleteCar(car: any): void {
-    // Implement delete functionality
-    console.log('Delete car:', car);
+  deleteCar(id:any): void {
+    
+    this.dealerService.deleteCar(id).subscribe(
+      () => {
+        console.log('Car deleted successfully.');
+        this.loadCar(this.dealerId);
+        // Optionally, you can update the UI or perform additional actions after deletion.
+      },
+      (error) => {
+        console.error('Error deleting car:', error);
+      }
+    );
   }
+
+
 }

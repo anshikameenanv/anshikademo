@@ -15,8 +15,25 @@
   .dialog-title h2 {
     margin: 0;
   }
+
   
   .dialog-title button {
     margin-left: auto; /* Push the close button to the right */
   }
-  
+ /* add-car-dialog.component.css */
+ .full-width {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+}
+.feild-design{
+  margin-top: 22px 
+}
+.form-field {
+  margin-right: 16px; /* Adjust spacing between fields as needed */
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color:none;
+}

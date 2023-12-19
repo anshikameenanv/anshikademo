@@ -79,6 +79,11 @@ export class DealrshipComponent implements OnInit {
       }
     );
   }
+  handleEvent(state: boolean): void {
+   ;
+    this.showDiv = state;
+  }
+ 
     // Method to handle the view action
     onView(dealer: any): void {
       console.log(dealer);

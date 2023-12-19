@@ -22,6 +22,7 @@ export class AddCarDialogComponent {
   @Output() carAdded = new EventEmitter<void>();
   onSaveClick(): void {
     // Validate form fields before adding the car
+    const dealerId = this.data;
     if (this.brand && this.model && this.color && this.price) {
       // Construct the new car object
       const newCar = {
@@ -34,8 +35,8 @@ export class AddCarDialogComponent {
       // Emit the carAdded event
       this.carAdded.emit();
     
-      const dealerId = this.data;
-      console.log(dealerId);
+     
+     
       this.dealerService.addCar(dealerId, newCar).subscribe((response) => {
         console.log('Car added successfully:', response);
         this.dialogRef.close(response); // Close the dialog on success

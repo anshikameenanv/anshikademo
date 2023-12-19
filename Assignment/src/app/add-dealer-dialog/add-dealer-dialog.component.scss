@@ -1,11 +1,6 @@
-.form-field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
+
   label {
-    margin-bottom: 5px;
+    margin-bottom: 30px;
   }
   h2 {
     display: flex;
@@ -20,4 +15,20 @@
     font-size: 14px;
     margin-bottom: 16px;
   }
-  
+/* Your Angular Material Form Styles */
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.form-field {
+  margin-right: 16px; /* Adjust spacing between fields as needed */
+  flex: 1; /* Allow the form field to grow and take up available space */
+}
+
+
