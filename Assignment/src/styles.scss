@@ -1,5 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+  }
+  
+  .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Align items to both ends */
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .mat-cell{
+    padding: 5px;
+  }
+.mat-header-cell {
+  padding: 5px !important; /* Adjust the padding as needed */
+  color: #fff;
 
+}
+.mat-button.mat-primary.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: white;
+  background-color: black;
+  
+}
+
+.button-blue {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Green Button */
+.button-green {
+  background-color: #28a745;
+  color: #fff;
+}
+.mat-icon {
+  font-size: 10px; /* Adjust the size as needed */
+  margin-top: 8px;
+}
+/* Red Button */
+.rounded-rectangle-button {
+  border-radius: 10px; /* Adjust the radius as needed */
+  padding: 10px 20px; /* Adjust padding as needed */
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  /* Add other styling properties as needed */
+}
+.button-red {
+  background-color: #dc3545;
+  color: #fff;
+}
+  .search-and-add-container mat-form-field {
+    margin-right: 8px;
+  }
+
+  .mat-header-row:first-child {
+    background-color:black; /* Change to your desired color */
+    color: #fff; /* Change to your desired text color */
+    
+  }
+  
+  /* Customize the background color of the cells in the first header row */
+  .mat-header-cell:first-child {
+    background-color:black; /* Change to your desired color */
+    color: #fff;
+  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,36 +1,36 @@
 
 <div *ngIf="!showDiv">
-  <h3>dealrship works!</h3>
+  <h3 style="margin-top: 20px;margin-left: 20px;">Dealrship</h3>
 <div class="example-container mat-elevation-z8">
     <div class="search-and-add-container">
-        <mat-form-field>
+        <mat-form-field  style="margin-left: 20px;">
             <input matInput #searchInput (input)="applyFilter(searchInput.value)" placeholder="Search">
         </mat-form-field>
-        <button mat-button color="primary" (click)="onAddDealer()">Add Item</button>
+        <button mat-button style="color: white;background-color:#0d6efd;" (click)="onAddDealer()">Add Item</button>
     </div>
     <mat-table [dataSource]="dataSource" class="mat-table">
         <ng-container matColumnDef="serialNumber">
             <mat-header-cell *matHeaderCellDef>Sr.No</mat-header-cell>
             <mat-cell *matCellDef="let element; let i = index">{{ getSerialNumber(i) }}</mat-cell>
           </ng-container>
-          <!-- Name Column -->
+        
           <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
             <mat-cell *matCellDef="let dealer">{{ dealer.name }}</mat-cell>
           </ng-container>
-          <!-- ID Column -->
+      
           <ng-container matColumnDef="amountCars">
             <mat-header-cell *matHeaderCellDef>Amount of cars</mat-header-cell>
             <mat-cell *matCellDef="let dealer">3</mat-cell>
           </ng-container>
         
-          <!-- Total Budget Column -->
+        
           <ng-container matColumnDef="totalBudget">
             <mat-header-cell *matHeaderCellDef>Total Budget</mat-header-cell>
             <mat-cell *matCellDef="let dealer">{{ dealer.totalBudget }}</mat-cell>
           </ng-container>
         
-          <!-- Remaining Budget Column -->
+         
           <ng-container matColumnDef="remainingBudget">
             <mat-header-cell *matHeaderCellDef>Remaining Budget</mat-header-cell>
             <mat-cell *matCellDef="let dealer">{{ dealer.remainingBudget }}</mat-cell>
@@ -39,14 +39,18 @@
     <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
         <mat-cell *matCellDef="let dealer">
-          <button mat-icon-button color="accent" (click)="editItem(dealer.id)">
-            <mat-icon>edit</mat-icon>edit
+         
+         
+           
+          <button style="margin-left: 8px; display: flex; padding: 5px;align-items: center; font-size: 12px;" type="button" class="btn btn-success" (click)="onView(dealer.id)">
+            <mat-icon style="margin-right: 2px; font-size: 18px;">visibility</mat-icon>View
           </button>
-          <button style="margin-right: 8px;"  mat-icon-button color="accent" (click)="onView(dealer.id)">
-            <mat-icon style="margin-right: 8px;">visibility</mat-icon>View
+          
+          <button style="margin-left: 8px; display: flex; align-items: center;padding: 5px;" type="button" class="btn btn-danger" (click)="deleteDealer(dealer.id)">
+            <mat-icon style="margin-right: 2px;" >delete</mat-icon>Delete
           </button>
-          <button style="margin-right: 8px;" mat-icon-button color="accent" (click)="deleteDealer(dealer.id)">
-            <mat-icon style="margin-right: 8px;" >delete</mat-icon>Delete
+          <button style=" display: flex; align-items: center;padding: 5px;margin-left: 10px;" type="button" class="btn btn-primary" (click)="editItem(dealer.id)">
+            <mat-icon>edit</mat-icon>Edit
           </button>
          
         
@@ -61,6 +65,6 @@
 
 </div>
 <div *ngIf="showDiv">
-  <app-dealership-detail [dealerId]="selectedDealerId"></app-dealership-detail>
+  <app-dealership-detail [dealerId]="selectedDealerId" (dialogClose)="handleEvent($event)"></app-dealership-detail>
 </div>
 
