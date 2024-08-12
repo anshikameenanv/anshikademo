@@ -1,0 +1,315 @@
+::ng-deep .flightComponentpopup {
+    .mat-mdc-dialog-container {
+        background-color: #ffffff;
+        position: fixed;
+        width: 830px;
+        height: 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+
+  
+}
+
+
+.select_flight {
+
+    .select_head_fix {
+        position: sticky;
+        top: 0;
+        background: #ffffff;
+        z-index: 1;
+
+        .select_head {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            border-bottom: 1px solid #e7e7e7;
+
+            .mat-icon {
+                color: var(--lt_txt);
+                cursor: pointer;
+            }
+
+            h4 {
+                font-size: 20px;
+                color: var(--lt_txt);
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.flight_timings {
+    padding: 20px 18px;
+    border-bottom: 1px solid #e7e7e7;
+
+    h3 {
+        margin: 0 0 12px 0;
+    }
+
+    .airline_det {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        span {
+            color: #828282;
+            padding-right: 4px;
+        }
+    }
+}
+
+.show_detail {
+    padding: 20px 18px;
+    border-bottom: 1px solid #e7e7e7;
+
+    >div {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+
+        +.flight_iner_det {
+            margin-top: 5px;
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: none;
+        }
+
+        &.active {
+            +.flight_iner_det {
+                display: block;
+            }
+        }
+    }
+}
+
+.flight_iner_det {
+    div {
+        p {
+            font-size: 14px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+            }
+
+            &.red_par {
+                color: #df2038;
+            }
+        }
+
+        &.layover {
+            margin: 15px 0;
+            padding: 12px 0;
+            border-top: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7;
+        }
+    }
+
+    .flt_amenities {
+        p {
+            img {
+                margin-right: 10px;
+            }
+
+        }
+    }
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.package_carousel_inr {
+    padding: 15px 20px;
+
+    .pack_item {
+        background-color: #FBFBFB;
+        padding: 15px;
+        width: 100%;
+        border: 1px solid #e7e7e7;
+        border-radius: 8px;
+
+        >div {
+            border-bottom: 1px solid #e7e7e7;
+            padding: 12px 0;
+
+            &.pt-0 {
+                padding-top: 0;
+            }
+
+            h3 {
+                font-size: 24px;
+                color: #000000;
+                margin-bottom: 5px;
+            }
+
+            h4 {
+                font-size: 20px;
+                margin-bottom: 4px;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 0 0 2px 0;
+                display: flex;
+                align-items: center;
+
+                img {
+                    margin-right: 5px;
+                }
+            }
+
+            &.sel_wrap {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.sel_wrap {
+    text-align: center;
+
+    .sel_btn {
+        width: 250px;
+        font-size: 20px;
+        height: 40px;
+    }
+}
+
+.select_flight_wrap,
+.over_auto {
+    overflow: auto;
+    height: calc(100% - 120px);
+}
+
+.sel_flt_slider {
+    .sel_btn_nav {
+        background: #00253C;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 8px;
+
+        &.carousel-control-prev {
+            left: 6px;
+        }
+
+        &.carousel-control-next {
+            right: 6px;
+        }
+
+        >span {
+            background-size: 14px;
+        }
+    }
+}
+
+.bottom_sel_det {
+    padding: 15px 18px;
+
+    p {
+        >span {
+            display: inline-flex;
+            color: var(--lt_txt);
+            gap: 5px;
+        }
+    }
+}
+
+.br_cont {
+    p {
+        >span.globe_span {
+            margin-right: 8px;
+
+            >span {
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .un_btm {
+        margin-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    ::ng-deep .mat-mdc-dialog-container {
+        width: 100%;
+    }
+
+    .package_carousel_inr {
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .package_carousel_inr {
+        .pack_item {
+            padding: 10px;
+
+            >div {
+                padding: 5px 0;
+
+                h3 {
+                    font-size: 18px;
+                }
+
+                p {
+                    font-size: 12px;
+                    line-height: 1.2;
+
+                    img {
+                        width: 12px;
+                    }
+                }
+
+                h4 {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .row {
+            .col-6 {
+                padding: 0 2px;
+            }
+        }
+    }
+
+    .sel_wrap {
+        .sel_btn {
+            width: 100%;
+            font-size: 16px;
+            height: 30px;
+        }
+    }
+
+    .flight_timings {
+        h3 {
+            font-size: 20px;
+
+        }
+    }
+}
+
+.cdk-overlay-container:has(.flightComponentpopup) {
+    z-index: 99999;
+}
+.takeOffPlane{
+    transform: rotate(-15deg);
+}

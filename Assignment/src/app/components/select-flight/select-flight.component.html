@@ -1,0 +1,256 @@
+<div class="select_flight_page">
+<div class="select_flight" *ngIf="fareDetailsWithSegmentAndPriceData && fareDetailsWithSegmentAndPriceData.length > 0 ; else noFlights">
+    <div class="select_head_fix">
+        <div class="select_head">
+            <mat-icon (click)="selectedFlight('close')">close</mat-icon>
+            <h4>Choose your flight</h4>
+        </div>
+        <div class="flight_timings">
+            <ng-container *ngIf="fareDetailsWithSegmentAndPriceData.length > 1; else showForZero">
+                <h5>   {{ getCityName(fareDetailsWithSegmentAndPriceData[0].segment.departure.iataCode) }} to       {{ getCityName(fareDetailsWithSegmentAndPriceData[1].segment.arrival.iataCode)}}</h5>
+                <h4>
+                    {{ fareDetailsWithSegmentAndPriceData[0].segment.departure.at | date:'shortTime' }} -
+                    {{ fareDetailsWithSegmentAndPriceData[1].segment.arrival.at | date:'shortTime' }}
+                    ({{ convertSimpleDuration(fareDetailsWithSegmentAndPriceData[0].segment.duration) }}, {{
+                        fareDetailsWithSegmentAndPriceData.length-1  }} stop)
+                </h4>
+              
+            </ng-container>
+
+            <ng-template #showForZero>
+                <h5>   {{ getCityName(fareDetailsWithSegmentAndPriceData[0].segment.departure.iataCode) }} to       {{ getCityName(fareDetailsWithSegmentAndPriceData[0].segment.arrival.iataCode) }}</h5>
+                    <h4>{{ fareDetailsWithSegmentAndPriceData[0].segment.departure.at | date:'shortTime' }} -   {{ fareDetailsWithSegmentAndPriceData[0].segment.arrival.at | date:'shortTime' }}
+                        ({{ convertSimpleDuration(fareDetailsWithSegmentAndPriceData[0].segment.duration) }})</h4>
+            
+              
+            </ng-template>
+            <div class="airline_det">
+                <span>
+                    {{ fareDetailsWithSegmentAndPriceData[0].airLines[0].commonName }} 
+                </span>
+                <img src="../../../assets/images/wifi.svg" alt="">
+                <img src="../../../assets/images/plugin.svg" alt="">
+                <img src="../../../assets/images/tv_player.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="select_flight_wrap">
+        <div class="show_detail">
+            <div [class.active]="isActive" (click)="toggleClass()">Show details
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="flight_iner_det">
+                <div *ngFor="let segment of fareDetailsWithSegmentAndPriceData">
+                    <div>
+                        <p><img src="../../../assets/images/flt_icon.svg">{{ segment.segment.departure.at | date:'shortTime' }} - {{ getCityName(segment.segment.departure.iataCode)
+                            }}</p>
+                        <p>{{ getCityName(segment.segment.departure.iataCode) }} Intl. ({{ segment.segment.departure.terminal }})</p>
+                        <p>{{ convertSimpleDuration(segment.segment.duration) }}</p>
+                        <p> {{ getAirlineCommonNameFromSegment(segment) }} {{ segment.segment.carrierCode }} {{
+                            segment.segment.number }}</p>
+                        <p>{{ segment.segment.aircraft.code }}</p>
+
+                        <p>{{ segment.cabin }}</p>
+                    </div>
+                    <br>
+                    <div>
+                        <p><img src="../../../assets/images/landingPlane.svg">{{ segment.segment.arrival.at |
+                            date:'shortTime' }} - {{ getCityName(segment.segment.arrival.iataCode) }}</p>
+                    </div>
+                    <div class="layOverInf" *ngIf="fareDetailsWithSegmentAndPriceData.length > 1 && segment !== fareDetailsWithSegmentAndPriceData[fareDetailsWithSegmentAndPriceData.length - 1]">
+                        Layover - {{ getCityName(segment.segment.arrival.iataCode) }}     ({{ getLayoverInfo(segment) }})
+                      </div>
+                    <!-- <div class="layOverInf" *ngIf="fareDetailsWithSegmentAndPriceData.length >1">Layover - {{ getCityName(segment.segment.arrival.iataCode) }} </div> -->
+                </div>
+                <!-- <div class="flt_amenities">
+                    <p><img src="../../../assets/images/wifi.svg" alt="wifi">Wifi</p>
+                    <p><img src="../../../assets/images/plugin.svg" alt="wifi">In-seat power outlet</p>
+                    <p><img src="../../../assets/images/tv_player.svg" alt="wifi">In-flight entertainment</p>
+                </div> -->
+            </div>
+        </div>
+        <div class="over_auto">
+            <div id="select_flight" class="carousel slide sel_flt_slider">
+                <div class="carousel-inner package_carousel_inr">
+
+
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-6"
+                                *ngFor="let segment of [fareDetailsWithSegmentAndPriceData[0]]; let i = index">
+                                <div class="pack_item">
+                                    <div class="pt-0">
+                                        <h3>$ {{ segment.price.total }}</h3>
+                                        <p>$ {{ segment.price.total }} price for 1 traveler</p>          
+                                    </div>
+                                    <div>
+                                        <h4>{{ segment.cabin }}</h4>
+                                        <p>Cabin: {{ segment.cabin }}</p>
+                                    </div>
+                                    <div>
+                                        <div>
+                                 
+                                          
+                                            <!-- Check if there are amenities -->
+                                            <div *ngIf="bagAmenities.length > 0; else noBagAmenities">
+                                              <h4>Bag</h4>
+                                              <div *ngFor="let amenity of bagAmenities">
+                                                <p>
+                                                  <img 
+                                                    [src]="amenity.isChargeable ? '../../../assets/images/dollar.svg' : '../../../assets/images/green_tick.svg'" 
+                                                    alt="Amenity Status"
+                                                  >
+                                                  {{ amenity.description }}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <ng-template #noBagAmenities>
+                                              <p>
+                                                <img src="../../../assets/images/gray_cross.svg" alt="No Amenities" width="16" height="16">
+                                                No bag amenities available
+                                              </p>
+                                            </ng-template>
+                                          
+                                            <!-- Repeat for Meal and Seat sections -->
+                                          
+                                            <div *ngIf="mealAmenities.length > 0; else noMealAmenities">
+                                              <h4>Meal</h4>
+                                              <div *ngFor="let amenity of mealAmenities">
+                                                <p>
+                                                  <img 
+                                                    [src]="amenity.isChargeable ? '../../../assets/images/dollar.svg' : '../../../assets/images/green_tick.svg'" 
+                                                    alt="Amenity Status"
+                                                  >
+                                                  {{ amenity.description }}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <ng-template #noMealAmenities>
+                                              <p>
+                                                <img src="../../../assets/images/gray_cross.svg" alt="No Amenities" width="16" height="16">
+                                                No meal amenities available
+                                              </p>
+                                            </ng-template>
+                                          
+                                            <div *ngIf="seatAmenities.length > 0; else noSeatAmenities">
+                                              <h4>Seat</h4>
+                                              <div *ngFor="let amenity of seatAmenities">
+                                                <p>
+                                                  <img 
+                                                    [src]="amenity.isChargeable ? '../../../assets/images/dollar.svg' : '../../../assets/images/green_tick.svg'" 
+                                                    alt="Amenity Status"
+                                                  >
+                                                  {{ amenity.description }}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <ng-template #noSeatAmenities>
+                                              <p>
+                                                <img src="../../../assets/images/gray_cross.svg" alt="No Amenities" width="16" height="16">
+                                                No seat amenities available
+                                              </p>
+                                            </ng-template>
+                                          </div>
+                                          
+<!--                                         
+                                        <div>
+                                          <h4>Bag</h4>
+                                          <div *ngFor="let amenity of bagAmenities">
+                                            <p>
+                                              <img 
+                                                [src]="amenity.isChargeable ? '../../../assets/images/dollar.svg' : '../../../assets/images/green_tick.svg'" 
+                                                alt="Amenity Status"
+                                              >
+                                              {{ amenity.description }}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      
+                                        <div>
+                                          <h4>Meal</h4>
+                                          <div *ngFor="let amenity of mealAmenities">
+                                            <p>
+                                              <img 
+                                                [src]="amenity.isChargeable ? '../../../assets/images/dollar.svg' : '../../../assets/images/green_tick.svg'" 
+                                                alt="Amenity Status"
+                                              >
+                                              {{ amenity.description }}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      
+                                        <div>
+                                          <h4>Seat</h4>
+                                          <div *ngFor="let amenity of seatAmenities">
+                                            <p>
+                                              <img 
+                                                [src]="amenity.isChargeable ? '../../../assets/images/dollar.svg' : '../../../assets/images/green_tick.svg'" 
+                                                alt="Amenity Status"
+                                              >
+                                              {{ amenity.description }}
+                                            </p>
+                                          </div>
+                                        </div> -->
+                                      </div>
+                                      
+                                  
+                                    <div class="sel_wrap">
+                                        <button class="btn1 sel_btn"
+                                            (click)="selectedFlight('selected')">Select</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="fareDetailsWithSegmentAndPriceData.length > 2">
+                <button class="sel_btn_nav carousel-control-prev" type="button" data-bs-target="#select_flight"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="sel_btn_nav carousel-control-next" type="button" data-bs-target="#select_flight"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+            </div>
+            <!-- <div class="bottom_sel_det">
+                <p>Baggage fees reflect the airline's standard fees based on the selected fare class. Fees may vary
+                    based on
+                    size and weight restrictions as well as loyalty programs and other promotions. For more information,
+                    check with <span>Frontier Airlines <img src="../../../assets/images/redirect.svg"
+                            alt="link"></span></p>
+                <p>You can purchase checked bags from <span>United <img src="../../../assets/images/redirect.svg"
+                            alt="link"></span> or through the link
+                    in
+                    your confirmation or check-in emails.</p>
+                <div class="br_cont">
+                    <p> <span class="globe_span"><img src="../../../assets/images/globe.svg" alt=""></span> Visit
+                        <span class="un_btm">United <img src="../../../assets/images/redirect.svg" alt="link"></span>
+                        website to find
+                        out more
+                        about their
+                        sustainability initiatives.
+                    </p>
+                </div>
+            </div> -->
+            <div class="bottom_sel_det">
+                <p>Baggage fees reflect standard charges based on the selected fare class. Fees may vary depending on size and weight restrictions, as well as loyalty programs and other promotions. For more information, please refer to your confirmation or check-in emails.</p>
+                <p>You can purchase checked bags through the link provided in your confirmation or check-in emails.</p>
+                <div class="br_cont">
+                    <p>
+                        <span class="globe_span"><img src="../../../assets/images/globe.svg" alt=""></span>
+                        Visit the <span class="un_btm">airline site </span> website to learn more about their sustainability initiatives.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<ng-template #noFlights>
+    <div class="no_flights_message">
+        <p>No flights available for the selected criteria.</p>
+    </div>
+</ng-template>
+</div>

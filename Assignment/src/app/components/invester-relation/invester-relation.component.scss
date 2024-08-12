@@ -1,0 +1,263 @@
+.layout {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+
+    div {
+        padding: 20px 15px;
+        max-width: 800px;
+        margin-bottom: 60px;
+        font-family: "LatoWeb";
+    }
+}
+
+.table-container {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 300px;
+    /* Adjust this height as needed */
+    border: 1px solid black;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header,
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    border: 1px solid #AEAEAE;
+    padding: 8px;
+    text-align: center;
+}
+
+.cell ul {
+    list-style-type: disc;
+    /* You can use other list-style-type values like circle or square */
+    padding-left: 20px;
+    /* Adjust this as needed to align with the text */
+}
+
+.row .cell {
+    width: 50%;
+    text-align: left;
+}
+
+/* CSS class for changing text color */
+.textDesign {
+    color: black;
+    font-weight: bold;
+}
+
+.about_bnr {
+    background: url("../../../assets/images/about_us_bnr.png") no-repeat center;
+    background-size: cover;
+    height: 230px;
+    max-height: 230px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 37, 60, 0.7);
+    }
+
+    >h1 {
+        position: relative;
+        z-index: 0;
+        color: #ffffff;
+        font-size: 64px;
+        margin-bottom: 0;
+    }
+}
+
+.mb-8 {
+    margin-bottom: 4.5rem !important
+}
+
+.mb-9 {
+    margin-bottom: 5rem !important
+}
+
+.mb-auto {
+    margin-bottom: auto !important
+}
+
+.py-8 {
+    padding-bottom: 4.5rem !important;
+    padding-top: 4.5rem !important
+}
+
+.py-9 {
+    padding-bottom: 5rem !important;
+    padding-top: 5rem !important
+}
+
+.table.refund_policy_table .row>div:nth-child(2) {
+
+    span.textDesign,
+    ul li {
+        color: var(--lt_txt);
+    }
+}
+
+@media(min-width:576px) {
+    .mb-sm-8 {
+        margin-bottom: 4.5rem !important
+    }
+
+    .mb-sm-9 {
+        margin-bottom: 5rem !important
+    }
+
+    .mb-sm-auto {
+        margin-bottom: auto !important
+    }
+
+    .py-sm-8 {
+        padding-bottom: 4.5rem !important;
+        padding-top: 4.5rem !important
+    }
+
+    .py-sm-9 {
+        padding-bottom: 5rem !important;
+        padding-top: 5rem !important
+    }
+}
+
+@media(min-width:768px) {
+    .mb-md-8 {
+        margin-bottom: 4.5rem !important
+    }
+
+    .mb-md-9 {
+        margin-bottom: 5rem !important
+    }
+
+    .mb-md-auto {
+        margin-bottom: auto !important
+    }
+
+    .py-md-8 {
+        padding-bottom: 4.5rem !important;
+        padding-top: 4.5rem !important
+    }
+
+    .py-md-9 {
+        padding-bottom: 5rem !important;
+        padding-top: 5rem !important
+    }
+}
+
+@media(min-width:992px) {
+    .mb-lg-8 {
+        margin-bottom: 4.5rem !important
+    }
+
+    .mb-lg-9 {
+        margin-bottom: 5rem !important
+    }
+
+    .mb-lg-auto {
+        margin-bottom: auto !important
+    }
+
+    .py-lg-8 {
+        padding-bottom: 4.5rem !important;
+        padding-top: 4.5rem !important
+    }
+
+    .py-lg-9 {
+        padding-bottom: 5rem !important;
+        padding-top: 5rem !important
+    }
+}
+
+@media(min-width:1200px) {
+    .mb-xl-8 {
+        margin-bottom: 4.5rem !important
+    }
+
+    .mb-xl-9 {
+        margin-bottom: 5rem !important
+    }
+
+    .mb-xl-auto {
+        margin-bottom: auto !important
+    }
+
+    .py-xl-8 {
+        padding-bottom: 4.5rem !important;
+        padding-top: 4.5rem !important
+    }
+
+    .py-xl-9 {
+        padding-bottom: 5rem !important;
+        padding-top: 5rem !important
+    }
+}
+
+@media(min-width:1400px) {
+    .mb-xxl-8 {
+        margin-bottom: 4.5rem !important
+    }
+
+    .mb-xxl-9 {
+        margin-bottom: 5rem !important
+    }
+
+    .mb-xxl-auto {
+        margin-bottom: auto !important
+    }
+
+    .py-xxl-8 {
+        padding-bottom: 4.5rem !important;
+        padding-top: 4.5rem !important
+    }
+
+    .py-xxl-9 {
+        padding-bottom: 5rem !important;
+        padding-top: 5rem !important
+    }
+}
+
+@media(max-width: 767px) {
+    .about_bnr h1 {
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .textDesign {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .textDesign,
+    .cell ul {
+        padding: 0;
+    }
+
+    .cell ul li {
+        font-size: 14px;
+    }
+}

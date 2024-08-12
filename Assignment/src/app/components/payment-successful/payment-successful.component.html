@@ -1,0 +1,40 @@
+
+
+<!-- <div class="payment_success">
+  <div class="card">
+
+      <img src="../../../assets/images/processingicon.gif"  class="processing-icon" >
+
+    <h1>Processing...</h1>
+    <p>We've successfully received your booking request. Our team will review it shortly and get back to you with confirmation!</p>
+    <p>Please wait patiently while we process your request. Your booking will be confirmed once it's been reviewed.</p>
+    
+    <div><p>
+      redirecting to review booking page ...
+
+    </p>
+   
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+<div class="payment_success">
+  <div class="card">
+    <img *ngIf="!showMessage" src="../../../assets/images/processingicon.gif" class="processing-icon">
+    <h1 *ngIf="!showMessage">Processing...</h1>
+    <div *ngIf="!showMessage">
+      <p>Redirecting to review booking page ...</p>
+    </div>
+    <div *ngIf="showMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <div></div>
+  </div>
+</div>

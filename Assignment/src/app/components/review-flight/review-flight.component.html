@@ -1,0 +1,211 @@
+<main class="review-flight">
+    <div class="container">
+        <div class="cus_main_flx">
+            <div class="cus_w70">
+                <ng-container *ngIf="bookingResponse; else bookingFailed">
+                    <h2>Flight Booking Details</h2>
+                    <p *ngIf="showBookingMessage"> Please log in with your email ID to view booking details.</p>
+                    <div class="rf_info mb-20">
+                        <div class="rf_head">
+                            <h5>PASSENGER AND TICKET INFORMATION</h5>
+                        </div>
+                        <div class="rf_body">
+                            <div class="row" *ngFor="let traveler of bookingResponse.travelers">
+                                <div class="col-md-6">
+                                    <div class="rf_flx">
+                                        <label>PASSENGER NAME</label>
+                                        <span class="rf_txt">{{ traveler.name.firstName }} {{ traveler.name.lastName
+                                            }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="rf_flx">
+                                        <label>GENDER</label>
+                                        <span class="rf_txt">{{ traveler.gender }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="rf_flx">
+                                        <label>E-TICKET NUMBER</label>
+                                        <span class="rf_txt">{{ bookingResponse.id }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="rf_flx">
+                                        <label>DATE OF BIRTH</label>
+                                        <span class="rf_txt">{{ traveler.dateOfBirth }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="rf_info ti mb-20">
+                        <div class="rf_head">
+                            <h5>TRAVEL INFORMATION</h5>
+                        </div>
+                        <div class="rf_body">
+                            <div class="row" *ngFor="let flightresult of flightPriceData">
+                                <div class="row" *ngFor="let flight of flightresult.flight">
+                                    <div class="col">
+                                        <div class="flt_info">
+                                            <label>FLIGHT</label>
+                                            <h6 clas><img src="../../../assets/images/flt-name.svg">{{
+                                                flight.carrierCode }}
+                                            </h6>
+                                            <p> {{ flight.aircraft.ccode }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="flt_info">
+                                            <label>DEPART</label>
+                                            <h6>{{ flight.departure.at | date:'dd MMM yyyy' }}</h6>
+                                            <p>{{ flight.departure.at | date:'HH:mm' }} IST</p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="flt_info">
+                                            <label>AIRPORT/TERNIMAL</label>
+                                            <p>{{ flight.departure.iataCode }}</p>
+                                            <p>{{ flight.departure.terminal}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="flt_info">
+                                            <label>Arrival</label>
+                                            <h6>{{ flight.arrival.at | date:'dd MMM yyyy' }}</h6>
+                                            <p>{{ flight.arrival.at | date:'HH:mm' }} IST</p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="flt_info">
+                                            <label>AIRPORT/TERNIMAL</label>
+                                            <p>{{ flight.arrival.iataCode }}</p>
+                                            <p>{{ flight.arrival.terminal}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="flt_info">
+                                            <label>CLASS/SEAT</label>
+                                            <h6>{{ getFareDetailBySegmentId(flight.id).cabin }}</h6>
+                                            <p *ngIf="getFareDetailBySegmentId(flight.id)?.seat">
+                                                {{ getFareDetailBySegmentId(flight.id)?.seat }}
+                                              </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rf_info ti mb-20">
+                        <div class="rf_head">
+                            <h5>FARE AND ADDITIONAL INFORMATION</h5>
+                        </div>
+                        <div class="rf_body">
+                            <div class="row fai">
+                                <div class="col-md-6">
+
+                                    <div class="fai_flx">
+                                        <label>TAXES</label>
+                                        <h6>${{taxAmount
+                                        }}</h6>
+                                    </div>
+                                    <div class="fai_flx">
+                                        <label>FARE TOTAL</label>
+                                        <h6>${{ tripTotal }}</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="fai_flx">
+                                        <label>PAYMENT MODE</label>
+                                        <h6>CARD</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="review_book">
+                        <h4>Review and book your trip</h4>
+                        <ul>
+                            <li>Review your trip details to make sure the dates and times are correct. </li>
+                            <li>Check your spelling. Flight passenger names must match government-issued photo ID
+                                exactly.
+                            </li>
+                            <li>Review the terms of your booking:
+                                <ol>
+                                    <li>We understand that sometimes plans change. We do not charge a cancel or change
+                                        fee. When the airline charges such fees in accordance with its own policies, the
+                                        cost
+                                        will be passed on to you.</li>
+                                    <li>Your itinerary consists of two one-way fares which are subject to their own
+                                        roles
+                                        and restrictions. If one of your flights is changed or cancelled, it will not
+                                        automatically change the other flight. You may incur a penalty fee for each
+                                        flight
+                                        for additional itinerary changes.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                        <p>By clicking on the button below, I acknowledge that I have reviewed the <span routerLink="/privacy" target="_blank">Privacy
+                                Statement <img src="../../../assets/images/db_square.svg"></span>and <span>Government
+                                Travel
+                                <img src="../../../assets/images/db_square.svg">Advice <img
+                                    src="../../../assets/images/db_square.svg"></span>and have reviewed and accept the
+                            above Rules & Restrictions and<span routerLink="/terms" target="_blank">Terms of Use</span></p>
+                        <p>
+                            <span><img src="../../../assets/images/lock.svg"></span>
+                            We use secure transmission and encrypted storage to protect your personal information.
+                        </p>
+                        <p>Payments are processed in the U.S. except where the travel provider (hotel / airline etc)
+                            processes your payment outside the U.S., in which case your card issuer may charge a foreign
+                            transaction fee.</p>
+                    </div>
+
+                </ng-container>
+                <ng-template #bookingFailed>
+                    <div class="booking-failed-message">
+                        <p>{{ failedMeesage }}</p>
+                    </div>
+                </ng-template>
+            </div>
+            <ng-container *ngIf="bookingResponse;">
+                <div class="cus_w30">
+                    <div class="cus_wht_box">
+                        <div *ngFor="let flightresult of flightPriceData">
+                            <div *ngFor="let flight of flightresult.flight">
+                                <div class="tck_info">
+                                    <hr>
+                                    <p> {{ flight.departure.iataCode }} to {{ flight.arrival.iataCode }}</p>
+                                    <p>{{ flight.departure.at | date:'dd MMM yyyy' }} - {{ flight.arrival.at | date:'dd
+                                        MMM yyyy' }} </p>
+                                    <p>{{ flight.duration}}</p>
+                                </div>
+                                <button class="btn1"  (click)="getEticket()">eTicket</button>
+                                <button class="btn1" style="margin-left: 10px;"
+                                    (click)="webCheckIn(flight.aircraft.code)">web-checkIn</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <hr>
+                            <div class="total">
+                                <h3>Total: ${{ tripTotal }}</h3>
+                            </div>
+                            <br>
+                            <p class="usd_quoted">All prices quoted in <span>US dollars.</span></p>
+                        </div>
+
+                        <!-- <button class="btn1" >eTicket</button>
+                    <button class="btn1" style="margin-left: 10px;"  (click)="webCheckIn(airLineCode)">web-checkIn</button> -->
+                    </div>
+
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</main>

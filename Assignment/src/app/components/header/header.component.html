@@ -1,0 +1,82 @@
+<header class="header wow fadeInDown">
+  <div class="container">
+    <div class="dFlex headerIn">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/passcoverage-white.png" width="432" height="84" alt="Passcoverage" />
+        <span>GuaranteedFlights.com</span>
+      </a>
+      <div class="headerRight">
+        <div class="nav">
+          <ul id="navigation" class="slimmenu">
+            <li>
+              <a href="https://www.passcoverage.com/" target="_blank" rel="noopener noreferrer">My Flight Was Cancelled</a>
+            </li>
+            <!-- <li>
+                <a href="#">Trips</a>
+              </li> -->
+            <li>
+              <a routerLink="/support">Support</a>
+            </li>
+            
+            
+          </ul>
+        </div>
+
+        <div *ngIf="showLogOut" class="dropdown userDropDown d-flex align-items-center" [class.show]="isDropdownOpen">
+          <ul class="admin-name">
+            <li *ngIf="showLogOut">
+              <span style="color: white;">{{ userName }}</span>
+            </li>
+          </ul>
+          <button class="dropdown-toggle menu-admin" (click)="toggleDropdown()">
+            <img src="../../../assets/images/usericon.svg" alt="">
+            <!-- {{ selectedOption || 'Select an option' }} -->
+          </button>
+          <div class="dropdown-menu" *ngIf="isDropdownOpen">
+            <!-- <button class="dropdown-item" *ngFor="let option of options" (click)="selectOption(option)">
+              {{ option }}
+            </button> -->
+            <div >
+              <button mat-menu-item routerLink="/profile">
+                <mat-icon>person</mat-icon>
+                <span>user details</span>
+              </button>
+  
+              <button mat-menu-item (click)="logOut()">
+                <mat-icon>logout</mat-icon>
+                <span>logout</span>
+              </button>
+  
+            </div>
+          </div>
+        </div>
+        <!-- <div *ngIf="showLogOut" class="d-flex align-items-center">
+          <ul class="admin-name">
+            <li *ngIf="showLogOut">
+              <span style="color: white;">{{ userName }}</span>
+            </li>
+          </ul>
+
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="menu-admin">
+            <img src="../../../assets/images/usericon.svg">
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/profile">
+              <mat-icon>person</mat-icon>
+              <span>user details</span>
+            </button>
+
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon>logout</mat-icon>
+              <span>logout</span>
+            </button>
+
+          </mat-menu>
+        </div> -->
+
+        <span *ngIf="!showLogOut"><a (click)="signIn()" class="btn1 signIn">Sign in</a></span>
+
+      </div>
+    </div>
+  </div>
+</header>

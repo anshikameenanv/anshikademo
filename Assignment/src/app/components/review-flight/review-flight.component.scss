@@ -1,0 +1,196 @@
+.mb-20{
+    margin-bottom: 20px;
+}
+.review-flight {
+    padding: 40px 0;
+    background-color: #fbfbfb;
+    position: relative;
+}
+
+.cus_main_flx {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 24px;
+}
+
+.cus_w70 {
+    width: calc(100% - 400px);
+    h2{
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+}
+
+.cus_w30 {
+    width: 400px;
+    position: sticky;
+    top: 75px;
+}
+.rf_head{
+    background-color: #00253C;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    h5{
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+}
+.rf_body{
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    .row{
+        row-gap: 20px;
+    }
+    .rf_flx{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 60px;
+        font-family: 'LatoWebMedium';
+        label{
+            color: #828282;
+            min-width: 180px;
+        }
+        .rf_txt{
+            color: #010101;
+        }
+    }
+    .fai_flx{
+        display: flex;
+        align-items: center;
+        gap: 130px;
+        label{
+            color: #828282;
+            font-family: 'LatoWebMedium';
+        }
+        h6{
+            margin-bottom: 0;
+        }
+    }
+}
+.rf_info.ti{
+    .rf_body{
+        padding: 0;
+        .row{
+            padding: 15px 0;
+            margin: 0;
+            &:nth-child(odd){
+                background-color: #F6F6F6;
+            }
+            .flt_info{
+                label{
+                    font-family: 'LatoWebMedium';
+                    margin-bottom: 16px;
+                    color: #828282;
+                }
+                h6{
+                    font-size: 14px;
+                    margin-bottom: 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+                p{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+.fai{
+    label{
+        min-width: 55px;
+    }
+    >.col-md-6{
+        .fai_flx:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+}
+.review_book{
+    background-color: #ffffff;
+    padding: 20px;
+    h4{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    ul{
+        font-family: "LatoWebMedium";
+        padding: 0 0 0 20px;
+        li{
+            list-style: decimal;
+        }
+        ol{
+            background-color: #fbfbfb;
+            padding: 10px 13px;
+            max-height: 150px;
+            overflow: auto;
+            margin-left: -15px;
+            margin-bottom: 20px;
+            li{
+                list-style-position: inside;
+                list-style-type: disc;
+                &:not(:last-child){
+                    margin: 0 0 30px ;
+                }
+            }
+        }
+    }
+    p{
+        color: #000000;
+        span{
+            display: inline-flex;
+            img{
+                margin: 0 5px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .rf_info{
+        font-size: 14px;
+    }
+    .rf_body {
+        .row{
+            row-gap: 10px;
+        }
+        .rf_flx {
+            gap: 10px;
+            label{
+                min-width: 130px;
+            }
+        }
+        .fai_flx{
+            gap: 10px;
+        }
+    }    
+  }
+  @media only screen and (max-width: 1440px){
+    .rf_body{
+        .rf_flx{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .row{
+            .col {
+                flex: 1 0 50%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .rf_info.ti .rf_body .row .flt_info label, .rf_info.ti .rf_body .row .flt_info label h6{
+        margin-bottom: 10px;
+    }
+  }
+  @media only screen and (max-width: 991px){
+    .cus_main_flx {
+        flex-direction: column;
+
+        .cus_w70,
+        .cus_w30 {
+            width: 100%;
+        }
+    }
+  }

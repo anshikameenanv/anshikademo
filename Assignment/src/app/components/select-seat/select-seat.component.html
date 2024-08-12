@@ -1,0 +1,88 @@
+<div *ngIf="seatDummy.length > 0 else noDataMessage">
+    <div [ngClass]="{'show_choose_pop': isClassActive}" class="choose_seats">
+        <div class="choose_head_fix">
+            <div class="choose_head">
+                <mat-icon (click)="selectedSeatClose('close',0)">close</mat-icon>
+                <h4>Choose your seats</h4>
+            </div>
+            <div class="choose_seat_inr_head">
+                <span>Flight {{ flightIndex }} of {{ options.length }}</span>
+                <div>
+                    {{selectedOption}}
+                </div>
+            </div>
+        </div>
+            <div>
+                <div class="passengerseat_wrap">
+                    <div class="fl-front">
+                    </div>
+                    <div class="passenger_seats">
+                      <div class="passenger_table">
+                        <div class="seat-map">
+                            <div *ngFor="let seatRow of seatDummy" class="row">
+                                <div class="seat" *ngFor="let seat of seatRow" [ngStyle]="{ 'background-color': getSeatBackgroundColor(seat,selectedIndex),'border-top':getBorder(seat) }" (click)="selectSeat(seat,flightIndex)"     [matTooltip]="seat ? (seat.travelerPricing && seat.travelerPricing.length > 0 && seat.travelerPricing[0].seatAvailabilityStatus === 'AVAILABLE' ? getTooltipText(seat) : '') : ''">
+                                    <ng-container *ngIf="seat && seat.travelerPricing && seat.travelerPricing.length > 0 && seat.travelerPricing[0].seatAvailabilityStatus === 'AVAILABLE'">
+                                        {{ seat.number }}
+                                    </ng-container>
+                                    <ng-container *ngIf="!seat">
+                                        <div class="seat-empty">  &nbsp; </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="seat && (!seat.travelerPricing || seat.travelerPricing.length === 0 || seat.travelerPricing[0].seatAvailabilityStatus !== 'AVAILABLE')">
+                                        <div><mat-icon>close</mat-icon></div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <img src="../../../assets/images/planeWing1.png" class="planeWing1"/>
+                      <img src="../../../assets/images/planeWing2.png" class="planeWing2"/>
+                    </div>
+                    <div class="fl-back">
+
+                    </div>
+                </div>
+
+                <div class="select_seats_btm_wrap" *ngIf="showSelectSeatButton">
+                    <div class="select_seats_btm">
+                        <div *ngIf="selectedSeat[selectedIndex].length > 0">
+                            <!-- Iterate over seats for a specific index (e.g., 0) -->
+                            <ng-container *ngFor="let seatDetail of selectedSeat[selectedIndex]; let i = index">
+                                <div class="seat_sel">
+                                    <h4>Seat {{ seatDetail.number }} - {{ seatDetail.travelerPricing[0].price.currency }} {{ seatDetail.travelerPricing[0].price.total }}</h4>
+                                    <!-- Additional seat details can be displayed here -->
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <button class="btn1" (click)="selectedSeatClose('selected',selectedIndex)"  [disabled]="disableSeat">Select Seat</button>
+                </div>
+                
+    
+            </div>
+            <div class="seat-info-wrap">
+                <ul>
+                    <li>
+                        <span class="infocolor" style="background-color:#add8e6;"></span> AVAILABLE
+                    </li>
+                    <li>
+                        <span class="infocolor" style="background-color:#efb6ec;"></span>  AVAILABLE LEG SPACE
+                    </li>
+                    <li>
+                        <span class="infocolor" style="background-color: #eaeaea;"><mat-icon>close</mat-icon></span> Booked or not available
+                    </li>
+                    <li>
+                        <span class="infocolor" style="background-color: #fff800;"></span> Selected
+                    </li>
+                    <li>
+                        <span class="infocolor" style="border:solid;"></span> exit row seat
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>
+<ng-template #noDataMessage>
+    <div class="no-data-message">
+   Seats will be provided checking by the Airline
+   <button (click)="selectedSeatClose('no seat available')">CheckOut</button>
+    </div>
+</ng-template>

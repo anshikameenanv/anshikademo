@@ -1,0 +1,600 @@
+.cus_main_flx {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 24px;
+
+    .cus_w70 {
+        width: calc(100% - 400px);
+    }
+
+    .cus_w30 {
+        width: 400px;
+        position: sticky;
+        top: 75px;
+    }
+}
+
+.btn1:disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    border: none;
+}
+
+.final-booking {
+    padding: 40px 0 0;
+
+    h1 {
+        font-size: 32px;
+        color: #101010;
+        font-family: 'LatoWebSemibold';
+        margin-bottom: 30px;
+    }
+
+    .sm_white {
+        background-color: #ffffff;
+        border: 1px solid #e7e7e7;
+        border-radius: 8px;
+        margin-bottom: 20px;
+
+        h2 {
+            font-family: 'LatoWebBold';
+            font-size: 20px;
+            color: var(--lt_txt);
+            padding: 16px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.who_travelling {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+
+    .who_travel_head {
+        background-color: #00253c;
+        padding: 20px 20px 13px;
+
+        h4 {
+            font-family: 'LatoWebBold';
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+    }
+
+    .who_travel_content {
+        //padding: 20px;
+        background-color: #ffffff;
+        margin-bottom: 20px;
+
+        .row>div {
+            display: flex;
+
+            >div {
+                width: 100%;
+            }
+        }
+    }
+
+    .who_travelling_inr {
+        padding: 20px 20px 0;
+
+        h6 {
+            color: #828282;
+        }
+    }
+
+    >h3 {
+        margin-bottom: 20px;
+    }
+}
+
+.who_travel_content {
+    h4 {
+        font-family: 'LatoWebBold';
+        color: #101010;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    hr {
+        margin: 25px 0;
+    }
+
+    ::ng-deep .chk_div {
+        .mat-mdc-list-base {
+            display: flex;
+            align-items: center;
+
+            .mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-one-line {
+                width: 40px;
+                height: 40px;
+            }
+
+            .mdc-list-item.mdc-list-item--with-one-line .mdc-list-item__start {
+                margin: 0;
+            }
+
+            .mat-mdc-list-option .mdc-checkbox {
+                padding: 0;
+            }
+
+            .mat-mdc-list-option .mdc-checkbox .mdc-checkbox__background {
+                top: -3px;
+            }
+
+            .who_travel_content[_ngcontent-guu-c77] .chk_div .mat-mdc-list-base .mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-one-line:focus,
+            .who_travel_content[_ngcontent-guu-c77] .chk_div .mat-mdc-list-base .mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-one-line:hover {
+                background-color: #ffffff;
+            }
+        }
+    }
+
+    .gender {
+        h4 {
+            font-family: "LatoWebBold";
+            color: #101010;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        mat-radio-group.mat-mdc-radio-group {
+            gap: 20px;
+            display: flex;
+        }
+
+    }
+
+    .ps_deatail_row {
+        row-gap: 20px;
+    }
+}
+
+.dob {
+    h5 {
+        font-family: 'LatoWebBold';
+        color: #101010;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .dob_fields {
+        display: flex;
+        flex-direction: column;
+
+        .mat-mdc-form-field {
+            // width: 33.33333333%;
+            // padding: 0 16px 0 0;
+        }
+    }
+}
+
+::ng-deep {
+    .mat-mdc-text-field-wrapper.mdc-text-field {
+        padding: 0;
+        height: 50px;
+        background-color: #FBFBFB;
+        border: 1px solid #e7e7e7;
+        border-radius: 8px;
+        align-items: center;
+        position: relative;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+        opacity: 0;
+    }
+}
+
+::ng-deep .frequent {
+    .mat-expansion-panel-header-title {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #101010;
+    }
+
+    .mat-expansion-panel-body {
+        p {
+            margin-bottom: 0;
+        }
+
+        .mat-expansion-panel-header.mat-expanded {
+            height: 50px;
+        }
+    }
+}
+
+.payment_sec {
+    h3 {
+        margin-bottom: 30px;
+    }
+
+    .payment_cont {
+        padding: 20px;
+        background-color: #ffffff;
+        margin-bottom: 20px;
+
+        h4 {
+            font-family: "LatoWebBold";
+            color: #101010;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .address_info {
+            h4 {
+                margin-bottom: 30px;
+            }
+        }
+
+        hr {
+            margin: 25px 0;
+        }
+
+        >.row {
+            row-gap: 20px;
+        }
+    }
+
+    .chk_div {
+        .mdc-list-item {
+            padding: 0;
+
+            .mdc-list-item__start {
+                margin: 0;
+            }
+        }
+    }
+}
+
+::ng-deep .payment_tab {
+    .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
+        flex-grow: 0;
+    }
+
+    .mat-mdc-tab-body-wrapper {
+        margin-top: 20px;
+    }
+
+    .card_acepted {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .month_year {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .mat-mdc-form-field {
+            max-width: 160px;
+        }
+    }
+
+    .sec_code {
+        .mat-mdc-form-field {
+            max-width: 148px;
+        }
+    }
+
+    .mat-mdc-tab-body-content {
+        overflow: initial;
+    }
+}
+
+.address_info {
+    h4 {
+        margin-bottom: 30px;
+    }
+}
+
+.confirmation_email {
+    background-color: #ffffff;
+    margin-bottom: 0;
+
+    h4 {
+        font-family: "LatoWebBold";
+        color: #101010;
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #101010;
+        margin-bottom: 30px;
+    }
+
+    hr {
+        margin: 25px 0;
+    }
+}
+
+.account_flex {
+    >div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 15px;
+
+        span {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            color: #449B00;
+
+            img {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+
+    .reward_tnc {
+        margin-bottom: 0;
+
+        span {
+            color: var(--lt_txt);
+        }
+    }
+}
+
+.review_book {
+    padding: 20px 0 0;
+    background-color: #ffffff;
+
+    h4 {
+        font-family: "LatoWebBold";
+        color: #101010;
+        font-size: 20px;
+    }
+
+    p {
+        color: #000000;
+    }
+
+    ul {
+        padding-left: 16px;
+
+        li {
+            list-style: decimal;
+            color: #101010;
+        }
+
+        &.disc_ul {
+            padding: 13px 10px;
+            padding-left: 40px;
+            background-color: #fbfbfb;
+            max-height: 150px;
+            overflow: auto;
+
+            li {
+                list-style: disc;
+            }
+        }
+    }
+
+    .prv_term {
+        margin-bottom: 0;
+
+        span {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 5px;
+            margin-right: 5px;
+
+            img {
+                width: 16px;
+            }
+        }
+    }
+
+    button {
+        &.btn1 {
+            font-size: 20px;
+            height: 40px;
+            width: 222px;
+            margin: 30px 0;
+        }
+    }
+
+    .secure_trans {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #000000;
+    }
+}
+
+.cus_wht_box {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    h3 {
+        font-family: "LatoWebBold";
+        font-size: 18px;
+        line-height: normal;
+        color: var(--black);
+        margin-bottom: 13px;
+    }
+
+    p {
+        color: #828282;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .total {
+        h3 {
+            text-align: right;
+            font-family: 'LatoWebBold';
+            margin-bottom: 0;
+        }
+    }
+}
+
+.tck_info {
+    p {
+        &.blk {
+
+            color: #000000;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.price_sum {
+    ul {
+        padding: 0;
+
+        li {
+            font-family: "LatoWeb";
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #828282;
+        }
+    }
+
+}
+
+p.usd_quoted {
+    margin-bottom: 0;
+
+    >span {
+        color: #000000;
+    }
+}
+
+::ng-deep {
+    .final-booking {
+        .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+            padding-left: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .account_flex {
+        >div {
+            flex-direction: column;
+
+            span {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .cus_main_flx {
+        flex-direction: column;
+
+        .cus_w70,
+        .cus_w30 {
+            width: 100%;
+        }
+    }
+
+    .payment_tab .month_year {
+        .mat-mdc-form-field {
+            max-width: 50%;
+        }
+    }
+
+    .payment_sec {
+        .payment_cont {
+            padding: 15px;
+        }
+
+        >.row {
+            row-gap: 20px;
+        }
+    }
+
+    .final-booking {
+        h1 {
+            font-size: 24px;
+        }
+
+        .sm_white {
+            h2 {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .who_travelling {
+        .who_travel_content {
+            padding: 0;
+        }
+
+        .chk_div .mat-mdc-list-base {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .frequent {
+        .mat-expansion-panel-header {
+            padding: 0 15px;
+        }
+
+        .mat-expansion-panel-header-title,
+        .frequent .mat-expansion-panel-body p {
+            font-size: 14px;
+        }
+    }
+
+    .account_flex>div {
+        gap: 1 0px;
+    }
+
+    .dob {
+        .dob_fields {
+
+            .mat-mdc-form-field {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    }
+
+    .who_travelling .who_travelling_inr {
+        padding: 15px 15px 0;
+    }
+}
+
+.required {
+    color: rgb(172, 172, 172);
+}
+
+.mat-button-toggle-checked {
+    background-color: rgba(76, 163, 232, 0.4);
+}

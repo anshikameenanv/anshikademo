@@ -1,0 +1,33 @@
+::ng-deep.custom-snackbar-success.mat-mdc-snack-bar-container .mdc-snackbar__surface  {
+    background-color: green;
+    color: white;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-top: 140px !important;
+    width: 100% !important;
+    max-width: 100%  !important;
+    height :60px;
+  }
+
+  ::ng-deep.custom-snackbar-error.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: #ef2f41 !important;
+    color: #842029 !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-top: 140px !important;
+    width: 100% !important;
+    max-width: 100%  !important;
+    height :60px;
+  }
+
+  ::ng-deep.custom-snackbar-info.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: blue;
+    color: white;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+  }
